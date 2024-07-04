@@ -1,0 +1,12 @@
+# Service registrations. See https://doc.nette.org/dependency-injection/services
+
+services:
+	- App\Core\RouterFactory::createRouter
+	- App\Model\UserFacade
+	security.passwords: Nette\Security\Passwords(::PASSWORD_ARGON2I)
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Factory
+			- *Facade

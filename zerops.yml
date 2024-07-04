@@ -1,0 +1,29 @@
+zerops:
+  - setup: app
+    build:
+      base: php@8.3
+      os: alpine
+      buildCommands:
+        - composer install --optimize-autoloader --no-dev
+      deployFiles: ./
+      cache:
+        - vendor
+        - composer.lock
+
+    deploy:
+      readinessCheck:
+        httpGet:
+          port: 80
+          path: /
+
+    run:
+      base: php-apache@latest
+      os: alpine
+      documentRoot: www/
+      initCommands:
+        - zsc execOnce $appVersionId -- php /var/www/bin/console migrations:continue
+        - chown -R zerops:zerops /var/www/temp/
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /

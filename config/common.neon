@@ -1,0 +1,60 @@
+# Application parameters and settings. See https://doc.nette.org/configuring
+
+parameters:
+
+
+application:
+	# Error presenters to handle application errors
+	errorPresenter:
+		4xx: Error:Error4xx
+		5xx: Error:Error5xx
+	# Presenter to class name mapping pattern
+	mapping: App\UI\*\**Presenter
+
+extensions:
+	redis: Contributte\Redis\DI\RedisExtension
+	monolog: Contributte\Monolog\DI\MonologExtension
+	console: Contributte\Console\DI\ConsoleExtension(%consoleMode%)
+	migrations: Nextras\Migrations\Bridges\NetteDI\MigrationsExtension
+
+session:
+    autoStart: true
+    expiration: 14 days
+
+database:
+	dsn: 'pgsql:host=%env.db_hostname%;port=%env.db_port%;dbname=db'
+	user: '%env.db_user%'
+	password: '%env.db_password%'
+
+latte:
+	strictTypes: yes
+
+migrations:
+    dir: %appDir%/../migrations
+    driver: pgsql
+    dbal: nette
+    withDummyData: %debugMode%
+
+monolog:
+	channel:
+		default: # default channel is required
+			handlers:
+				- Monolog\Handler\SyslogHandler(app)
+
+redis:
+	connection:
+		default:
+			uri: 'tcp://%env.redis_hostname%:%env.redis_port%'
+			storage: true
+			sessions: false
+			options:
+				parameters:
+					database: 0
+		session:
+			uri: 'tcp://%env.redis_hostname%:%env.redis_port%'
+			storage: false
+			sessions:
+				ttl: 86400 # 1 day
+			options:
+				parameters:
+					database: 1

@@ -1,0 +1,32 @@
+{block content}
+
+<div class="post-detail">
+    <div class="date">{$post->created_at|date:'F j, Y'}</div>
+
+    <h1 n:block=title>{$post->title}</h1>
+
+    <div class="post-content">{$post->content}</div>
+</div>
+
+{if $user->isloggedIn()}
+    <div style="padding: 10px 0;">
+        <a n:href="Edit:edit $post->id">Edit post</a>
+    </div>
+{/if}
+
+<hr>
+
+<h2>Comments</h2>
+
+<div class="comments">
+    {foreach $comments as $comment}
+        <div class="comment-head">
+            <a href="mailto:{$comment->email}" n:tag-if="$comment->email"><span class="comment-author">{$comment->name}</span></a> said:
+        </div>
+        <div class="comment-content">{$comment->content}</div>
+    {/foreach}
+</div>
+
+<h2>Post new comment</h2>
+
+{control commentForm}

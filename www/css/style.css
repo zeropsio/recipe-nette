@@ -1,0 +1,136 @@
+body {
+    font: 16px/1.5 Georgia, Verdana, Arial;
+    margin: 0 auto;
+    width: 960px;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Navigation */
+ul.navig {
+    list-style-type: none;
+    margin: 0 0 15px 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    border-top: 0;
+    background-color: #f3f3f3;
+}
+
+ul.navig li {
+    float: left;
+}
+
+ul.navig li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.navig li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+ul.navig li a.active {
+    color: #000;
+    background-color: #aaa;
+}
+
+/* Flash messages styling - typically used for notifications or alerts */
+div.flash {
+    color: black;
+    background: #FFF9D7;
+    border: 1px solid #E2C822;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+/* Style for error links - used by presenters */
+a[href^="#error:"] {
+    background: red;
+    color: white;
+}
+
+/* Form styles */
+form > table {
+    width: 100%;
+}
+
+form th, form td {
+    vertical-align: top;
+    font-weight: normal;
+}
+
+form th {
+    padding: 0 5px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+form td {
+    width: 100%;
+}
+
+form textarea {
+    width: 100%;
+    height: 4em;
+}
+
+/* Highlight required form fields */
+form .required label {
+    font-weight: bold;
+}
+
+/* Style for form error messages */
+form .error {
+    color: #D00;
+    font-weight: bold;
+}
+
+/* Style for posts on homepage */
+.post-list .post {
+    margin: 15px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.post-list .post:last-child {
+    border-bottom: none;
+}
+
+.post-list .post .date {
+    padding-bottom: 10px;
+}
+
+.post-list .post h2 {
+    margin-top: 0;
+}
+
+/* Styles for comments */
+.comment-head {
+    padding: 5px 0;
+    background: #f3f3f3;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-content {
+    /*border-bottom: 1px dotted #ccc;*/
+    padding-bottom: 10px;
+}
+
+.comment-content:last-child {
+    /*border-bottom: none;*/
+}
+
+/* Footer */
+.footer {
+    margin: 20px 0 10px 0;
+    padding: 10px 0;
+    background: #f3f3f3;
+    text-align: center;
+}

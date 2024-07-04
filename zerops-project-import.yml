@@ -1,0 +1,30 @@
+#yamlPreprocessor=on
+project:
+  name: recipe-nette
+  tags:
+    - zerops-recipe
+
+services:
+  - hostname: app
+    type: php-apache@8.3
+    buildFromGit: https://github.com/MichalSalon/recipe-nette@main
+    enableSubdomainAccess: true
+    envSecrets:
+      ADMIN_PASSWORD: <@generateRandomString(<24>)>
+      APP_ENV: dev # for this example, in production it should be set to `prod` (or anything else than `dev`)
+
+  - hostname: db
+    type: postgresql@16
+    mode: NON_HA
+    priority: 10
+
+  - hostname: redis
+    type: keydb@6
+    mode: NON_HA
+    priority: 10
+
+  - hostname: adminerevo
+    type: php-apache@8.3
+    buildFromGit: https://github.com/zeropsio/recipe-adminerevo@main
+    enableSubdomainAccess: true
+    maxContainers: 1

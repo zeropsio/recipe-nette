@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    {* If a title block is defined in the child template, it's included here. *}
+    <title>{ifset title}{include title|stripHtml} | {/ifset}Nette Framework Micro-blog</title>
+
+    <link rel="stylesheet" href="{$basePath}/css/style.css">
+</head>
+
+<body>
+<ul class="navig">
+    <li><a n:href="Home:" n:class="$presenter->isLinkCurrent('Home:default') ? 'active'">Home</a></li>
+    {if $user->isloggedIn()}
+        <li><a n:href="Edit:create" n:class="$presenter->isLinkCurrent('Edit:create') ? 'active'">New post</a></li>
+        <li style="float:right"><a n:href="Sign:out">Sign out</a></li>
+    {else}
+        <li style="float:right"><a n:href="Sign:in">Sign in</a></li>
+    {/if}
+</ul>
+
+{* Display any flash messages to the user *}
+
+<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+	{* Main content placeholder. This will be replaced by the content block of child templates. *}
+	{include content}
+
+	<p class="footer">This is a <a href="http://doc.nette.org/quickstart">Nette Framework Quick Start</a>.</p>
+
+	{block scripts}
+    <script src="https://unpkg.com/nette-forms@3/src/assets/netteForms.js"></script>
+{/block}
+</body>
+</html>
