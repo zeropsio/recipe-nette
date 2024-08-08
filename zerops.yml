@@ -14,7 +14,6 @@ zerops:
         httpGet:
           port: 80
           path: /
-
     run:
       base: php-apache@latest
       os: alpine
