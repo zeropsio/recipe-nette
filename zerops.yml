@@ -9,7 +9,6 @@ zerops:
       cache:
         - vendor
         - composer.lock
-
     deploy:
       readinessCheck:
         httpGet:
