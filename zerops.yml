@@ -15,7 +15,7 @@ zerops:
           port: 80
           path: /
     run:
-      base: php-apache@latest
+      base: php-apache@8.3
       os: alpine
       documentRoot: www/
       initCommands:
