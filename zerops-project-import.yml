@@ -12,6 +12,9 @@ services:
     envSecrets:
       ADMIN_PASSWORD: <@generateRandomString(<24>)>
       APP_ENV: dev # for this example, in production it should be set to `prod` (or anything else than `dev`)
+    verticalAutoscaling:
+      minRam: 0.25
+      minFreeRamGB: 0.125
 
   - hostname: db
     type: postgresql@16
