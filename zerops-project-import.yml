@@ -26,8 +26,8 @@ services:
     mode: NON_HA
     priority: 10
 
-  - hostname: adminerevo
+  - hostname: adminer
     type: php-apache@8.3
-    buildFromGit: https://github.com/zeropsio/recipe-adminerevo@main
+    buildFromGit: https://github.com/zeropsio/recipe-adminer@main
     enableSubdomainAccess: true
     maxContainers: 1
