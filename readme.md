@@ -22,7 +22,7 @@ You can either click the deploy button to deploy directly on Zerops, or manually
 - Setup for Nextras **database migrations** with automatic admin user creation
 - Logs set up to use **syslog** and accessible through Zerops GUI
 - Utilization of Zerops built-in **environment variables** system
-- [AdminerEvo](https://www.adminerevo.org) for **quick database management** tool
+- [Adminer](https://www.adminer.org/en/) for **quick database management** tool
 
 <br/>
 
