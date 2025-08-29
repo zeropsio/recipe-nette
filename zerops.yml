@@ -25,3 +25,8 @@ zerops:
         httpGet:
           port: 80
           path: /
+      envVariables:
+        DATABASE_DSN: 'pgsql:host=${db_hostname};port=${db_port};dbname=${db_dbName}'
+        DATABASE_USER: '${db_user}'
+        DATABASE_PASSWORD: '${db_password}'
+        REDIS_URI: 'tcp://${redis_hostname}:${redis_port}'

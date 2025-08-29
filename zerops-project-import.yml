@@ -1,4 +1,4 @@
-#yamlPreprocessor=on
+#zeropsPreprocessor=on
 project:
   name: recipe-nette
   tags:
