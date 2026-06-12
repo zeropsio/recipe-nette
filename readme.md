@@ -30,7 +30,8 @@ You can either click the deploy button to deploy directly on Zerops, or manually
 
 Base of the recipe is ready for production, the difference comes down to:
 
-- Use highly available version of the PostgreSQL database (change `mode` from `NON_HA` to `HA` in recipe YAML, `db` service section)
+- Use highly available version of the PostgreSQL database (change `type` from `postgresql:single@16` to `postgresql:ha@16` in recipe YAML, `db` service section)
+- Switch to `oltp-production` profile for the PostgreSQL database
 - Use at least two containers for Nette service to achieve high reliability and resilience (add `minContainers: 2` in recipe YAML, `app` service section)
 - Disable public access to Adminer or remove it altogether (remove service `adminer` from recipe YAML)
 - Set `APP_ENV` to `prod` in `envSecrets`, `app` section of import YAML

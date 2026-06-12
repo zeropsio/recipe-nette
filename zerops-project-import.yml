@@ -17,13 +17,12 @@ services:
       minFreeRamGB: 0.125
 
   - hostname: db
-    type: postgresql@16
-    mode: NON_HA
+    type: postgresql:single@16
+    profile: oltp-staging
     priority: 10
 
   - hostname: redis
-    type: keydb@6
-    mode: NON_HA
+    type: valkey:single@7
     priority: 10
 
   - hostname: adminer
