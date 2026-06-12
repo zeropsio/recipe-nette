@@ -22,7 +22,7 @@ services:
     priority: 10
 
   - hostname: redis
-    type: valkey:single@7
+    type: valkey:single@7.2
     priority: 10
 
   - hostname: adminer
